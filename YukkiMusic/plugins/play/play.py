@@ -12,7 +12,7 @@ from config import BANNED_USERS, lyrical
 from strings import get_command
 from YukkiMusic import (Apple, Resso, SoundCloud, Spotify, Telegram,
                         YouTube, app)
-from YukkiMusic.core.call import Prime
+from YukkiMusic.core.call import Yukki
 from YukkiMusic.utils import seconds_to_min, time_to_seconds
 from YukkiMusic.utils.channelplay import get_channeplayCB
 from YukkiMusic.utils.database import is_video_allowed
@@ -326,7 +326,7 @@ async def play_commnd(
             return await mystic.delete()
         else:
             try:
-                await Prime.stream_call(url)
+                await Yukki.stream_call(url)
             except NoActiveGroupCall:
                 await mystic.edit_text(
                     "هناك مشكله في البوت من فضل قم بالتحدث لمطور البوت لحل المشكله ❤️⚡"
@@ -590,7 +590,7 @@ async def anonymous_check(client, CallbackQuery):
 
 
 @app.on_callback_query(
-    filters.regex("PrimePlaylists") & ~BANNED_USERS
+    filters.regex("YukkiPlaylists") & ~BANNED_USERS
 )
 @languageCB
 async def play_playlists_command(client, CallbackQuery, _):
