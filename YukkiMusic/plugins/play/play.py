@@ -38,7 +38,7 @@ PLAY_COMMAND = get_command("PLAY_COMMAND")
 )
 @PlayWrapper
 async def play_commnd(
-    client,
+    client,on_message
     message: Message,
     _,
     chat_id,
