@@ -37,9 +37,9 @@ PLAY_COMMAND = get_command("PLAY_COMMAND")
     & ~BANNED_USERS
 )
 @PlayWrapper
-async def play_commnd(
-    client,
-    message: Message,
+async def play(_, message: Message):
+    chat_id = message.chat.id
+    if message.sender_chat:
     _,
     chat_id,
     video,
