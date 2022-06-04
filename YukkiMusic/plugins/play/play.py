@@ -30,7 +30,7 @@ from YukkiMusic.utils.stream.stream import stream
 PLAY_COMMAND = get_command("PLAY_COMMAND")
 
 
-@app.on_message(
+@app.on_message(command(
     filters.command(PLAY_COMMAND)
     & filters.group
     & ~filters.edited
@@ -38,7 +38,7 @@ PLAY_COMMAND = get_command("PLAY_COMMAND")
 )
 @PlayWrapper
 async def play_commnd(
-    client,on_message
+    client,
     message: Message,
     _,
     chat_id,
